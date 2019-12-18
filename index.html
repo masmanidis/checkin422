@@ -22,9 +22,13 @@
   <title>CHECK-IN</title>
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  
+  <!--removeIf(production)-->
+  <link rel="stylesheet" href="framework7/core/css/framework7.min.css">
+  <link rel="stylesheet" href="css/icons.css">
+  <link rel="stylesheet" href="css/app.css">
+  <!--endRemoveIf(production)-->
 
-  <link rel="stylesheet" href="css/bundle-00e5796661.css">
+  <!--bundleCSSPlaceholder-->
 
 </head>
 
@@ -190,12 +194,24 @@
         </div>
       </script>
 
-  <script src="cordova.js"></script>
+  <!--cordovaPlaceholder-->
 
 
-  
+  <!--removeIf(production)-->
+  <!-- Framework7 library -->
+  <script src="framework7/core/js/framework7.min.js"></script>
+	<script>
+		document.write("@1</br>");
+	</script>	  
 
-  <script type="text/javascript" src="js/framework7.min.js"></script><script type="text/javascript" src="js/bundle-1379b9df87.min.js"></script>
+  <!-- App routes -->
+  <script src="js/routes.js"></script>
+
+  <!-- Your custom app scripts --> 
+  <script src="js/app.js"></script>
+  <!--endRemoveIf(production)-->
+
+  <!--bundleJSPlaceholder-->
 </body>
 
 </html>
