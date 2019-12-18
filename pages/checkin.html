@@ -1,0 +1,326 @@
+<div class="page" data-name="checkin">
+    <audio id="checkinsound" autoplay="true" type="audio/wav"></audio>
+    <!-- Top Navbar -->
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="left">
+                <a class="link back">
+                    <i class="icon icon-back"></i>
+                    <span class="ios-only">Back</span>
+                </a>
+            </div>
+            <div class="title sliding"> <i class="fa fa-barcode fa-lg" aria-hidden="true"></i> <span lex='tr_checkin_title'>CHECKIN </span></div>
+            <div class="right">
+                <a class="link panel-open" href="#" data-panel="left"><i class="fa fa-bar-chart" aria-hidden="true"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="toolbar toolbar-bottom-md">
+        <div class="toolbar-inner  ">
+            <a class="link icon-only" id="docheckin">
+                <i class="icon f7-icons ios-only">check</i>
+                <i class="icon material-icons md-only text-color-white">check_circle</i>
+                &nbsp;  <span class="font-12" lex='tr_checkin_btn'>CHECKIN</span> 
+            </a>
+            <a class="link icon-only" id="doinfo">
+                <i class="icon f7-icons ios-only">info_round</i>
+                <i class="icon material-icons md-only text-color-white">info</i>
+            </a>
+            <a class="link icon-only" id="docheckout">
+                     <span class="font-12" lex='tr_checkout_btn'>CHECKOUT</span>&nbsp; 
+                <i class="icon f7-icons ios-only">delete</i>
+                <i class="icon material-icons md-only text-color-white">remove_circle</i>
+            </a>
+        </div>
+    </div>
+    <div class="page-content">
+        <div class="block list">
+            <ul id="checkininputs">
+                <li class="item-content item-input">
+                    <p class="segmented segmented-raised width-100"> 
+                        <button class="button button-active" id="byticket" lex='tr_tickets_btn'>TICKETS</button>
+                        <button class="button" id="bybooking" lex='tr_bookingref_btn'>BOOKINGREF</button>
+                    </p>
+                </li>
+                <li class="item-content item-input byticket">
+                    <div class="item-inner">
+                        <div class="item-title item-label font-15" lex='tr_ticket'>Ticket dd</div>
+                        <div class="item-input-wrap input-with-value">
+                            <input type="text" name="ticket" value="" id="ticket" validate pattern="[A-Za-z 0-9]{2,14}"
+                                data-error-message="A-Z and 0-9" class="font-25" />
+                        </div>
+                    </div>
+                </li>
+                <li class="item-content item-input bybooking hidden">
+                    <div class="item-inner">
+                        <div class="item-title item-label font-15" lex='tr_bookingref'>Booking Ref</div>
+                        <div class="item-input-wrap">
+                            <input type="text" id="bookingref" class="font-25" name="bookingref" validate pattern="[0-9A-Z]{9,10}" />
+                        </div>
+                    </div>
+                </li>
+                <li class="item-content item-input">
+                    <div class="item-inner">
+                        <div class="item-input-wrap">
+                            <div class="block">
+                                <div class="row">
+                                    <button id="doclear" class="col button button-fill button-round" lex='tr_clear_btn'>Clear</button>
+                                    <button id="dosearch" class="col button button-fill button-round" lex='tr_search_btn'>Search</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="card-header">
+                        <div class="chip">
+                            <div class="chip-media bg-color-blue">
+                                ID
+                            </div>
+                            <div class="chip-label font-bolder" id="checkinidlabel">.....</div>
+                        </div>
+                    </div>
+                    <table id="grid1table" style="width:330px">
+                        <tbody id="grid1">
+                        </tbody>
+                    </table>
+                </li>
+            </ul>
+        </div>
+        <script type="text/template7" id="t7ticketinfo">
+            <div class="list">
+                <ul>
+                    {{#js_if "this.type === 'P'"}} 
+                    <li>
+                        <div class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title">
+                                    <div class="item-header" lex="tr_ticket">Ticket</div>
+                                    {{typeicon}} | {{ticket}} 
+                                </div>
+                            </div>
+                         </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title">
+                                    <div class="item-header" lex="tr_class_code">Class Code</div>
+                                    {{abbr}}
+                                </div>
+                            </div>
+                        </div>
+                    </li>    
+                    <li>
+                        <div class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title">
+                                    <div class="item-header" lex="tr_bookingref">Booking Ref</div>
+                                    {{bookingref}}
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title">
+                                    <div class="item-header" lex="tr_name">Name</div>
+                                    {{name}}
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title">
+                                    <div class="item-header" lex="tr_checkin_id">Checkin ID</div>
+                                    {{checkedtext}} | {{checked}}  
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    {{/js_if}}
+                    {{#js_if "this.type === 'V'"}} 
+                    <li>
+                        <div class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title">
+                                    <div class="item-header" lex="tr_ticket">Ticket</div>
+                                    {{typeicon}} | {{ticket}} 
+                                </div>
+                            </div>
+                         </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title">
+                                    <div class="item-header" lex="tr_vehicle_type">Vehicle Type</div>
+                                    {{abbr}}
+                                </div>
+                            </div>
+                        </div>
+                    </li>    
+                    <li>
+                        <div class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title">
+                                    <div class="item-header" lex="tr_registratiom_no">Registration No</div>
+                                    {{name}}
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title">
+                                    <div class="item-header" lex="tr_units">Units</div>
+                                    {{units/10}}
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title">
+                                    <div class="item-header" lex="tr_checkin_id">Checkin ID</div>
+                                    {{checkedtext}} | {{checked}}  
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    {{/js_if}}
+                    {{#js_if "this.type === 'F'"}} 
+                    <li>
+                        <div class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title">
+                                    <div class="item-header" lex="tr_ticket">Ticket</div>
+                                    {{typeicon}} | {{ticket}} 
+                                </div>
+                            </div>
+                         </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title">
+                                    <div class="item-header" lex="tr_vehicle_type">Vehicle Type</div>
+                                    {{vehtypeabbr}}
+                                </div>
+                            </div>
+                        </div>
+                    </li>    
+                    <li>
+                        <div class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title">
+                                    <div class="item-header" lex="tr_plate">Plate</div>
+                                    {{plate}}
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title">
+                                    <div class="item-header" lex="tr_garage_units">Garage Units</div>
+                                    {{garageunits/10}}
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                                <div class="item-inner">
+                                    <div class="item-title">
+                                        <div class="item-header" lex="tr_company">Company</div>
+                                        {{company}}
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title">
+                                    <div class="item-header" lex="tr_checkin_id" >Checkin ID</div>
+                                    {{checkedtext}} | {{checked}}  
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    {{/js_if}}
+            </div>
+        </script>
+        <div class="list accordion-list">
+            <ul id="selected">
+                
+            </ul>
+        </div>
+       
+        <script type="text/template7" id="t7grid1">
+            {{#each tickets}}
+                <tr style="zIndex:9999" id="tr{{ticket}}" ticket='{{ticket}}' type='{{type}}' checked='{{checked}}' bookingref="{{bookingref}}">
+                    <td class="label-cell" style="width:50px">
+                        <label class="radio">
+                            <input type="radio" id="{{ticket}}"  name="gridrows" {{js "@first ? 'selected' : ''"}} name="demo-radio-inline">
+                            <i class="icon-radio"></i>
+                        </label>
+                    </td>
+                    <td class="label-cell" style="min-width:200px;">
+                        <div> {{abbr}} {{discount}} </div> 
+                        <div> {{typeicon}} {{name}} </div>
+                        <div class="font-10"> {{locationtodescr}} </div>
+                    </td>
+                    <td style='text-align:center; width:50px;' class="label-cell {{checkedbg}}">{{checkedtext}}</td>
+                </tr>
+            {{/each}}
+        </script>
+        <div class="popup" id="apppopup">
+                <div class="view">
+                    <div class="page">
+                        <div class="navbar">
+                            <div class="navbar-inner">
+                                <div class="title" lex="tr_ticket_details">Ticket Details</div>
+                                <div class="right">
+                                    <a href="#" class="link popup-close">
+                                        <i class="icon f7-icons ios-only">close_round</i>
+                                        <i class="icon material-icons md-only text-color-white">cancel</i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="page-content">
+                            <div class="block" id="ticketinfo"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script type="text/template7" id="t7selected">
+                <li class="accordion-item selectedvessel">
+                <a href="#" class="item-content item-link">
+                    <div class="item-inner"> 
+                    <div class="item-title text-color-blue">{{ depdate }} <i class="fa fa-chevron-right" aria-hidden="true"></i>   {{ toport }}  <br/> <span class="font-12 "> {{ vessel }} </span>   </div>
+                    </div>
+                </a>
+                <div class="accordion-item-content">
+                    <div class="block">
+                    <p>{{ frmport }} - {{ toport }}<br/> {{ depdate }} <br/> {{ itindescr }} </p>
+                    </div>
+                    <p class="block row padding-bottom">
+                    <a  href="" id="changetrip" class="link" lex='tr_change_trip_btn'>CHANGE TRIP</a>
+                    <a  href="" id="gohome" class="link" lex='tr_home_btn' >HOME</a>
+                    </p> 
+                </div>
+                </li>
+            </script>
+    </div>
+     <!-- Popup -->
+   
+</div>

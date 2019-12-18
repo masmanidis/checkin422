@@ -1,0 +1,51 @@
+<div class="page" data-name="timetable">
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="left">
+                <a class="link back">
+                    <i class="icon icon-back"></i>
+                    <span class="ios-only">Back</span>
+                </a>
+            </div>
+            <div class="title"> <i class="fa fa-list-ol" aria-hidden="true"></i> <span lex='tr_departures'> Select a Departure </span></div>
+            <div class="right"></div>
+        </div>
+    </div>
+    <div class="page-content">
+
+        <div class="list media-list">
+
+            <ul id="t7timetable">
+                <script type="text/template7" id="timetable">
+                      {{#each tripseg}}
+                      <li   class="departures"  
+                            id="{{ tripdetailsid }}" 
+                            tripmainid="{{ tripmainid }}" 
+                            locationnumfrom="{{ locationnumfrom }}" 
+                            vessel="{{ vessel }}" 
+                            frmport="{{ locationfromdescr }}" 
+                            toport="" 
+                            depdate="{{ depdate }}" 
+                            itindescr ="{{ tripstatusdescr }}">
+                      <label class="item-radio item-content">
+                            <input type="radio" name="departures"  />
+                            <i class="icon icon-radio" checked></i>
+                            <div class="item-inner">
+                              <div class="item-title-row">
+                                <div class="item-title">{{ locationfromdescr }}</div>
+                                <div class="item-after">{{ depdate }}</div>
+                              </div>
+                              <div class="item-subtitle">{{ vessel }}</div>
+                              <div class="item-text">{{ tripstatusdescr }}</div>
+                            </div>
+                          </label>
+                          {{else}}
+                          <li>No trips found</li>
+                      
+                      {{/each}}
+                        
+                </script>
+            </ul>
+        </div>
+    </div>
+</div>

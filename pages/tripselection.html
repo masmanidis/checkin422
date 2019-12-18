@@ -1,0 +1,76 @@
+<div class="page" data-name="tripselection">
+	<div class="navbar">
+		<div class="navbar-inner">
+			<div class="left">
+				<a class="link back">
+					<i class="icon icon-back"></i>
+					<span class="ios-only">Back</span>
+				</a>
+			</div>
+			<div class="title"> <i class="fa fa-ship" aria-hidden="true"></i> <span lex='tr_select_trip'> Select a
+					Trip</span></div>
+			<div class="right"></div>
+		</div>
+	</div>
+	<div class="page-content">
+
+		<div class="list">
+			<ul>
+
+				<li>
+
+					<a href="#" data-open-in="popup" data-searchbar="true" data-searchbar-placeholder="Search ports"
+						data-close-on-select="true" class="item-link smart-select smart-select-init frmPorts">
+						<select id="frmPorts" name="frmPorts" required validate pattern="[0-9]*"
+							data-error-message="Not valid entry">
+
+						</select>
+						<div class="item-content">
+							<div class="item-inner">
+								<!-- Select label -->
+								<div class="item-title" lex='tr_select_port'>Port</div>
+							</div>
+						</div>
+				</li>
+				<li>
+					<a href="#" data-open-in="popup" data-close-on-select="true"
+						class="item-link smart-select smart-select-init vessels">
+
+						<select id="vessels" name="vessels">
+
+						</select>
+
+						<div class="item-content">
+							<div class="item-inner">
+								<div class="item-title" lex='tr_select_vessel'>Vessel</div>
+							</div>
+						</div>
+					</a>
+				</li>
+				<li class="item-content item-input">
+					<div class="item-inner">
+						<div class="item-title item-label" lex='tr_departure_date'>Departure Date</div>
+						<div class="item-input-wrap">
+							<input type="text" placeholder="" readonly="readonly" id="dateFrom" />
+						</div>
+					</div>
+				</li>
+
+
+				<li id="formSearchBtn">
+					<div class="block padding-bottom">
+						<div class="row padding-bottom padding-top">
+							<button class="col button button-fill button-round" lex='tr_search_departures'>Search for
+								departures</button>
+						</div>
+					</div>
+				</li>
+
+			</ul>
+		</div>
+
+
+
+
+	</div>
+</div>
