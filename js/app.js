@@ -200,7 +200,7 @@ var _fn = {
   
 	successGetLangRQ: function (response,s,o) {
     app.langdata = response.lang;
-    console.log(response.lang);
+    
     localStorage.setItem(_fn.storageprefix+"langdata",JSON.stringify(response.lang));
     _fn.doChangeLang();
   },    
@@ -302,7 +302,7 @@ $$(document).on('deviceready', function() {
 app.data = new _fn.checkin();
 window.onload = function() {
   _fn.init();
-  alert(3)
+ 
   app.router.routes[0].on.pageAfterIn();
 };
  

@@ -135,7 +135,7 @@ routes = [
 					}
 
 					app.rs = rval['response'];
-					console.log(rval['response']);
+					
 					if (inType == -1 || rval.response.errorcode == -999) {
 						_fn.doPlaySound();
 						var searchTemplate = $$('#t7grid1').html();
@@ -156,7 +156,7 @@ routes = [
 
 							$$("#" + row.id).on('click', function (o) {
 								var tr = o.target.closest('tr');
-								console.log(tr);
+								
 								$$("#checkinidlabel").html(tr.getAttribute("checked"));
 								tr.querySelector("input").checked = true;
 								app.data.checked = tr.getAttribute("checked");
