@@ -20,12 +20,12 @@
     <plugin name="cordova-plugin-statusbar" spec="1.0.1" />
     <plugin name="cordova-plugin-whitelist" spec="1.2.2" />
 	  
-	  <plugin name="cordova-plugin-crosswalk-webview" spec="~1.6.1"/>
+	  
       
     <platform name="android">
         <preference name="orientation" value="portrait" />
         <preference name="android-minSdkVersion" value="7" />
-		<preference name="android-targetSdkVersion" value="27" />
+		
 		<preference name='phonegap-version' value='cli-9.0.0' />
 		<allow-intent href="market:*" />
         <icon density="ldpi" src="res/icon/android/ldpi.png"/>
