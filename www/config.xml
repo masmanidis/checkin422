@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="checkin.certusonline.com" version="1.0.13" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>CHECKIN APP</name>
+<widget id="checkin.certusonline.com" version="1.0.14" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>CHECKIN APP 4 2 2</name>
     <description>
-        CERTUS ONLINE Handheld Check-in Application
+        CERTUS ONLINE Handheld Check-in Application 
     </description>
     <author email="dmas@certusonline.com" href="http://www.certusonline.com">
         D.Masmanidis
@@ -23,10 +23,8 @@
      
     <platform name="android">
         <preference name="orientation" value="portrait" />
-        <preference name="android-minSdkVersion" value="14" />
+        <preference name="android-minSdkVersion" value="10" />
         <allow-intent href="market:*" />
-        <preference name="SplashMaintainAspectRatio" value="true"/>
-        <preference name="SplashShowOnlyFirstTime" value="true"/>
         <icon density="ldpi" src="res/icon/android/ldpi.png"/>
         <icon density="mdpi" src="res/icon/android/mdpi.png"/>
         <icon density="hdpi" src="res/icon/android/hdpi.png"/>
@@ -41,17 +39,10 @@
         <splash density="port-xxhdpi" src="res/screen/android/splash-port-xxhdpi.png"/>
         <splash density="port-xxxhdpi" src="res/screen/android/splash-port-xxxhdpi.png"/>
     </platform>
-    <preference name="DisallowOverscroll" value="true" />
-    <preference name="AutoHideSplashScreen" value="true" />
-    <preference name="SplashScreenDelay" value="4000" />
-    <platform name="ios">
-        <allow-intent href="itms:*" />
-        <allow-intent href="itms-apps:*" />
-        <preference name="BackupWebStorage" value="none" />
-    </platform>
+    
     <platform name="android">
         <allow-intent href="market:*" />
     </platform>
-    <engine name="android" spec="~7.1.4" />
+    <engine name="android" spec="~4.2.2" />
     
 </widget>
