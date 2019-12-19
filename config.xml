@@ -19,7 +19,7 @@
     <plugin name="cordova-plugin-console" spec="1.0.7" />
     <plugin name="cordova-plugin-statusbar" spec="1.0.1" />
     <plugin name="cordova-plugin-whitelist" spec="1.2.2" />
-    <plugin name="cordova-plugin-crosswalk-webview" spec="2.3.0"/> 
+    
     <platform name="android">
         <preference name="orientation" value="portrait" />
         <allow-intent href="market:*" />
