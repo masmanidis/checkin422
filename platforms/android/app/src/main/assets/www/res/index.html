@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <!--
+  Customize this policy to fit your own app's needs. For more guidance, see:
+      https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+  Some notes:
+      * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+      * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+      * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+          * Enable inline JS: add 'unsafe-inline' to default-src
+  -->
+  <meta http-equiv="Content-Security-Policy" content="default-src * 'self' 'unsafe-inline' 'unsafe-eval' data: gap: content:">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="theme-color" content="#2196f3">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+  <title>CHECK-IN</title>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+
+  <link rel="stylesheet" href="css/bundle-003a5b309f.css">
+
+</head>
+
+<body>
+  <div id="app" style="background-color: grey;">
+    <!-- Status bar overlay for fullscreen mode-->
+    <div class="statusbar"></div>
+
+    <div class="panel panel-left panel-cover">
+      <div class="view">
+        <div class="page">
+          <div class="navbar">
+            <div class="navbar-inner">
+              <div class="title" lex="tr_embarkation_status">Embarkation Status</div>
+            </div>
+          </div>
+          <div class="page-content" id="embarkation">
+            <!-- t7template -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="view view-main ios-edges">
+      <div class="page" data-name="home">
+        <div class="navbar">
+          <div class="navbar-inner">
+            <div class="title sliding">
+              <div class="title sliding"><i class="fa fa-barcode" aria-hidden="true"></i> <span lex='tr_checkin_title'>CHECKIN </span></div>
+            </div>
+            <div class="right">
+              <a data-popover=".langpopover" class="link popover-open"><img  id="flag" src='images/EN.png' /></a>
+            </div>
+          </div>
+        </div>
+        <div class="page-content">
+          <div class="block list" id="appsettings">
+            <div class="block-title"><b> <span lex="tr_please_select_your_company" >Please enter valid Company URL & ID </span></b></div>
+            <ul class="">
+              <li class="item-content item-input">
+                <div class="item-inner">
+                  <div class="item-title item-label"> <span lex="tr_URL_address" > A Valid URL Address </span> </div>
+                  <div class="item-input-wrap input-with-value">
+                    <input type="url" class="font-14" id="url" value="http://" required validate
+                      data-error-message="Not valid entry" />
+                  </div>
+                </div>
+              </li>
+              <li class="item-content item-input">
+                <div class="item-inner">
+                  <div class="item-title item-label" lex="tr_company_id">Company ID</div>
+                  <div class="item-input-wrap">
+                    <input type="text" id="compid" class="compid font-14" required validate pattern="[0-9]*" data-error-message="Not valid entry">
+                  </div>
+                </div>
+              </li>
+              <li class="text-align-center padding-bottom padding-top">
+                <a id="loginlink" class="link" lex="tr_login">Login</a> |
+                <a id="resetlink" class="link" lex="tr_reset">Reset</a>
+              </li>
+            </ul>
+          </div>
+          <div class="block list text-align-center">
+            <div class="text-align-center">
+              <a onclick="window.open('http://www.certusonline.com', '_system');" class="external"> <img src="images/logo_small.png"
+                  class="logo" />
+              </a><br />
+              <span class="font-11 text-align-center"> 2019 &copy; Ver 1.0.0 </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="popover langpopover">
+      <div class="popover-inner">
+        <!-- Link to close popover -->
+        <div class="list">
+          <ul>
+            <li>
+              <a class="item-link item-content lang" lang="EN" href="#">
+                <div class="item-media"><img src="images/EN.png" /></div>
+                <div class="item-inner">
+                  <div class="item-title">English</div>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a class="item-link item-content lang" lang="EL" href="#">
+                <div class="item-media"><img src="images/EL.png" /></div>
+                <div class="item-inner">
+                  <div class="item-title">Ελληνικά</div>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+
+
+  <script type="text/template7" id="t7embarkation">
+    <div class="data-table data-table-init card" >
+      
+      <div class="card-header">
+        <div class="data-table-title"><i class="fa fa-male" aria-hidden="true"></i> <span lex="tr_passengers">Passengers</span></div>
+      </div>
+      <div class="card-content">
+        <table>
+          <tbody>
+            <tr>
+              <td class="label-cell" lex="tr_boarded">Boarded</td>
+              <td class="numeric-cell text-color-green">{{js "this.pyes == '' ? 0:this.pyes"}}</td>
+            </tr>
+            <tr>
+              <td class="label-cell" lex="tr_not_boarded">Not Boarded</td>
+              <td class="numeric-cell text-color-red">{{js "this.pno == '' ? 0:this.pno"}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="data-table data-table-init card">
+        <div class="card-header">
+          <div class="data-table-title"><i class="fa fa-car" aria-hidden="true"></i> <span lex="tr_vehicles"> Vehicles</span></div>
+        </div>
+        <div class="card-content">
+          <table>
+            <tbody>
+              <tr>
+                <td class="label-cell"  lex="tr_boarded1">Boarded</td>
+                <td class="numeric-cell text-color-green">{{js "this.vyes == '' ? 0:this.vyes"}}</td>
+              </tr>
+              <tr>
+                <td class="label-cell" lex="tr_not_boarded1">Not Boarded</td>
+                <td class="numeric-cell text-color-red">{{js "this.vno == '' ? 0:this.vno"}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="data-table data-table-init card">
+          <div class="card-header">
+            <div class="data-table-title"><i class="fa fa-truck" aria-hidden="true"></i> <span lex="tr_freights"> Freights </span></div>
+          </div>
+          <div class="card-content">
+            <table>
+              <tbody>
+                <tr>
+                  <td class="label-cell"  lex="tr_boarded1">Boarded</td>
+                  <td class="numeric-cell text-color-green">{{js "this.fyes == '' ? 0:this.fyes"}}</td>
+                </tr>
+                <tr>
+                  <td class="label-cell" lex="tr_not_boarded1">Not Boarded</td>
+                  <td class="numeric-cell text-color-red">{{js "this.fno == '' ? 0:this.fno"}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </script>
+
+  <script src="cordova.js"></script>
+
+
+  
+
+  <script type="text/javascript" src="js/framework7.min.js"></script><script type="text/javascript" src="js/bundle-974d1dca84.min.js"></script>
+</body>
+
+</html>
