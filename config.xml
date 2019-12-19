@@ -21,7 +21,7 @@
     <plugin name="cordova-plugin-whitelist" spec="1.2.2" />
 	  
 	  <plugin name="cordova-plugin-crosswalk-webview" spec="~1.6.1"/>
-     
+      
     <platform name="android">
         <preference name="orientation" value="portrait" />
         <preference name="android-minSdkVersion" value="7" />
