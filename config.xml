@@ -23,7 +23,8 @@
      
     <platform name="android">
         <preference name="orientation" value="portrait" />
-        <preference name="android-minSdkVersion" value="10" />
+        <preference name="android-minSdkVersion" value="7" />
+		<preference name="android-targetSdkVersion" value="17" />
         <allow-intent href="market:*" />
         <icon density="ldpi" src="res/icon/android/ldpi.png"/>
         <icon density="mdpi" src="res/icon/android/mdpi.png"/>
