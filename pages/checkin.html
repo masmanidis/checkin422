@@ -37,16 +37,16 @@
         <div class="block list">
             <ul id="checkininputs">
                 <li class="item-content item-input">
-                    <p class="segmented segmented-raised width-100"> 
+                    <p class="segmented segmented-raised width-100">
                         <button class="button button-active" id="byticket" lex='tr_tickets_btn'>TICKETS</button>
                         <button class="button" id="bybooking" lex='tr_bookingref_btn'>BOOKINGREF</button>
                     </p>
                 </li>
                 <li class="item-content item-input byticket">
                     <div class="item-inner">
-                        <div class="item-title item-label font-15" lex='tr_ticket'>Ticket dd</div>
+                        <div class="item-title item-label font-15" lex='tr_ticket'>Ticket</div>
                         <div class="item-input-wrap input-with-value">
-                            <input type="text" name="ticket" value="" id="ticket" validate pattern="[A-Za-z 0-9]{2,14}"
+                            <input type="text" name="ticket" value="" id="ticket" validate pattern="[A-Z]{1,2}[0-9]{3,13}"
                                 data-error-message="A-Z and 0-9" class="font-25" />
                         </div>
                     </div>
@@ -64,26 +64,31 @@
                         <div class="item-input-wrap">
                             <div class="block">
                                 <div class="row">
-                                    <button id="doclear" class="col button button-fill button-round" lex='tr_clear_btn'>Clear</button>
-                                    <button id="dosearch" class="col button button-fill button-round" lex='tr_search_btn'>Search</button>
+                                    <button id="doclear" class="col button button-small button-fill" lex='tr_clear_btn'>Clear</button>
+                                    <button id="dosearch" class="col button button-small button-fill" lex='tr_search_btn'>Search</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </li>
+
                 <li>
-                    <div class="card-header">
-                        <div class="chip">
-                            <div class="chip-media bg-color-blue">
-                                ID
+                    <div class="data-table data-table-init ">
+                        <div class="card-header">
+                           
+                               <div class="chip">
+                                    <div class="chip-media bg-color-blue">
+                                       ID
+                                    </div>
+                                    <div class="chip-label font-bolder" id="checkinidlabel">.....</div>
+                                </div>
                             </div>
-                            <div class="chip-label font-bolder" id="checkinidlabel">.....</div>
-                        </div>
+                      
+                        <table id="grid1table">
+                            <tbody id="grid1">
+                            </tbody>
+                        </table>
                     </div>
-                    <table id="grid1table" style="width:330px">
-                        <tbody id="grid1">
-                        </tbody>
-                    </table>
                 </li>
             </ul>
         </div>
@@ -267,19 +272,16 @@
         <script type="text/template7" id="t7grid1">
             {{#each tickets}}
                 <tr style="zIndex:9999" id="tr{{ticket}}" ticket='{{ticket}}' type='{{type}}' checked='{{checked}}' bookingref="{{bookingref}}">
-                    <td class="label-cell" style="width:50px">
+                    <td>
                         <label class="radio">
                             <input type="radio" id="{{ticket}}"  name="gridrows" {{js "@first ? 'selected' : ''"}} name="demo-radio-inline">
-                            <i class="icon-radio"></i>
-                        </label>
+                        <i class="icon-radio"></i>
                     </td>
-                    <td class="label-cell" style="min-width:200px;">
-                        <div> {{abbr}} {{discount}} </div> 
-                        <div> {{typeicon}} {{name}} </div>
-                        <div class="font-10"> {{locationtodescr}} </div>
-                    </td>
-                    <td style='text-align:center; width:50px;' class="label-cell {{checkedbg}}">{{checkedtext}}</td>
+                    <td class="col label-cell">{{ticket}} <br /><span class="font-12"> {{abbr}}</span></td>
+                    <td class="col label-cell">{{typeicon}}</td>
+                    <td class="col label-cell {{checkedbg}}">{{checkedtext}}</td>
                 </tr>
+                
             {{/each}}
         </script>
         <div class="popup" id="apppopup">
@@ -292,6 +294,8 @@
                                     <a href="#" class="link popup-close">
                                         <i class="icon f7-icons ios-only">close_round</i>
                                         <i class="icon material-icons md-only text-color-white">cancel</i>
+            
+            
                                     </a>
                                 </div>
                             </div>
