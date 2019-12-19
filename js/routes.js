@@ -1,3 +1,4 @@
+alert("root start"); 
 routes = [
 	{
 		name: 'home',
@@ -620,3 +621,4 @@ routes = [
 	}
 ];
 
+alert("root end"); 
