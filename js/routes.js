@@ -1,3 +1,4 @@
+alert("rooot");
 routes = [
 	{
 		name: 'home',
