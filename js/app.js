@@ -300,11 +300,9 @@ $$(document).on('deviceready', function() {
 });
 
 app.data = new _fn.checkin();
-window.onload = function() {
+
   _fn.init();
- 
   app.router.routes[0].on.pageAfterIn();
-};
  
 
  
