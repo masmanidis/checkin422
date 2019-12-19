@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="checkin42.certusonline.com" version="1.0.7" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="checkin42.certusonline.com" version="1.0.8" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>CHECKIN APP 4.2</name>
     <description>
         CERTUS ONLINE Handheld Check-in Application
@@ -25,7 +25,8 @@
         <preference name="orientation" value="portrait" />
         <preference name="android-minSdkVersion" value="14" />
         <allow-intent href="market:*" />
-        
+        <preference name="SplashMaintainAspectRatio" value="true"/>
+        <preference name="SplashShowOnlyFirstTime" value="true"/>
         <icon density="ldpi" src="res/icon/android/ldpi.png"/>
         <icon density="mdpi" src="res/icon/android/mdpi.png"/>
         <icon density="hdpi" src="res/icon/android/hdpi.png"/>
@@ -42,8 +43,9 @@
     </platform>
     <preference name="DisallowOverscroll" value="true" />
     
-    
     <platform name="android">
         <allow-intent href="market:*" />
     </platform>
+     <engine name="android" spec="~4.2.2" />
+    
 </widget>
