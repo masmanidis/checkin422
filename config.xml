@@ -39,10 +39,4 @@
         <splash density="port-xxhdpi" src="res/screen/android/splash-port-xxhdpi.png"/>
         <splash density="port-xxxhdpi" src="res/screen/android/splash-port-xxxhdpi.png"/>
     </platform>
-    
-    <platform name="android">
-        <allow-intent href="market:*" />
-    </platform>
-    <engine name="android" spec="~4.2.2" />
-    
 </widget>
