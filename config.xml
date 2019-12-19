@@ -19,9 +19,13 @@
     <plugin name="cordova-plugin-console" spec="1.0.7" />
     <plugin name="cordova-plugin-statusbar" spec="1.0.1" />
     <plugin name="cordova-plugin-whitelist" spec="1.2.2" />
+<<<<<<< HEAD
     <plugin name="cordova-plugin-crosswalk-webview" spec="~1.6.0"/>
 	  
      
+=======
+    
+>>>>>>> 3e157867d34346421840a43f304178cad072ca4e
     <platform name="android">
         <preference name="orientation" value="portrait" />
         <preference name="android-minSdkVersion" value="7" />
