@@ -244,8 +244,9 @@ var _fn = {
   }
 }
 
-
+alert("fn91");
 var $$ = Dom7;
+alert("fn92");
 var app = new Framework7({
   url: '',
   compid: '',
@@ -300,21 +301,23 @@ var app = new Framework7({
  
   routes: routes 
 });
-
+alert("fn93");
 var mainView = app.views.create('.view-main', {
   pushState: false
   
 });
+alert("fn94");
 mainView.router.on('routeChanged', function(){
   _fn.doChangeLang();
 });
- 
+alert("fn95"); 
 // Device Ready Event
 $$(document).on('deviceready', function() {
   document.addEventListener("backbutton", app.methods.onBackKeyDown, false);
 });
-
+alert("fn96");
 app.data = new _fn.checkin();
+alert("fn97");
 window.onload = function() {
   alert("fn19");
   _fn.init();
