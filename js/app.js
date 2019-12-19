@@ -245,84 +245,16 @@ var _fn = {
 }
 
 alert("fn91");
-var $$ = Dom7;
-alert("fn92");
-var app = new Framework7({
-  url: '',
-  compid: '',
-  byforce: '',
-  process: '',
-  
-  modalTitle: 'CERTUS ONLINE',
-  input: {
-    scrollIntoViewOnFocus: true,
-    scrollIntoViewCentered: true,
-  },
-  // init:false,
-  notification: {
-    title: 'CERTUS ONLINE',
-    closeTimeout: 3000,
-  },
-  data: {},
-  root: '#app', // App root element
-  id: 'gr.certus.www', // App bundle ID
-  name: 'CHECK-IN', // App name
-  
-  
-  smartSelect: {
-    openIn: 'popup' 
-  },
-  methods: {
-    onBackKeyDown: function() {
 
-        var leftp = app.panel.left && app.panel.left.opened;
-        var rightp = app.panel.right && app.panel.right.opened;
-        if ( leftp || rightp ) {
-            app.panel.close();
-            return false;
-        } else if ($$('.modal-in').length > 0) {
-            app.dialog.close();
-            app.popup.close();
-            return false;
-        } else if (app.views.main.router.url == '/') {
-          app.dialog.confirm(_fn.trans("tr_leave_application"), function () {
-            navigator.app.exitApp();
-          });
-        } else {
-            if(app.views.main.router.url == '/login/')
-              mainView.router.navigate({ name: 'home' });
-            mainView.router.back();
-       }
-      }
-    },
-  panel: {
-    swipe: 'left'
-  },
- 
-  routes: routes 
-});
-alert("fn93");
-var mainView = app.views.create('.view-main', {
-  pushState: false
-  
-});
-alert("fn94");
-mainView.router.on('routeChanged', function(){
-  _fn.doChangeLang();
-});
-alert("fn95"); 
-// Device Ready Event
-$$(document).on('deviceready', function() {
-  document.addEventListener("backbutton", app.methods.onBackKeyDown, false);
-});
+
 alert("fn96");
-app.data = new _fn.checkin();
+ 
 alert("fn97");
 window.onload = function() {
   alert("fn19");
   _fn.init();
   
-  app.router.routes[0].on.pageAfterIn();
+ 
 };
  
 
