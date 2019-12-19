@@ -188,7 +188,13 @@ var _fn = {
     newRq.sendRequest(false);
   },
   init: function () { 
-	
+		$$('.lang').click(function() {
+      localStorage.setItem(_fn.storageprefix+'appLng', $$(this).attr("lang"));
+      localStorage.removeItem(_fn.storageprefix+'langdata');
+      app.popover.close(".langpopover");
+      $$("#flag")[0].src = 'images/'+localStorage.getItem(_fn.storageprefix+"appLng")+'.png';
+      _fn.doGetLang();
+    });
 	},
 	doChangeLang : function () {
     alert("fn13");
@@ -237,8 +243,8 @@ var _fn = {
     this.phpsessionid = '';
   }
 }
- 
-_fn.init();
+
+alert("skata");
  
 
  
