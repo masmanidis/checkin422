@@ -248,7 +248,7 @@ var app = new Framework7({
   },
   data: {},
   root: '#app', // App root element
-  id: 'gr.certus.www', // App bundle ID
+  id: 'com.certusonline.www', // App bundle ID
   name: 'CHECK-IN', // App name
   
   
@@ -298,7 +298,7 @@ $$(document).on('deviceready', function() {
   alert("device ready");
   document.addEventListener("backbutton", app.methods.onBackKeyDown, false);
 });
-
+alert("0");
 app.data = new _fn.checkin();
 window.onload = function() {
   alert(0);
